@@ -13,5 +13,5 @@
 ```yaml
 jobs:
   ci:
-    uses: atisot/shared-actions/.github/workflows/ci-nodejs.yml@v0.0.1
+    uses: atisot/shared-actions/.github/workflows/ci-nodejs.yml@v1.0.0
 ```
