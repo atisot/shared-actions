@@ -1,4 +1,4 @@
-name: Release (Mod)
+name: Release (MC Mod)
 
 on:
   workflow_call:
