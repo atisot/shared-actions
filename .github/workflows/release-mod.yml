@@ -38,10 +38,17 @@ jobs:
       - name: Execute Gradle build
         run: ${{ inputs.command }}
 
+      - name: Get Metadata
+        id: metadata
+        run: |
+          echo "::set-output name=version::$(./gradlew properties -q | grep "modVersion" | awk '{print $2}')"
+          echo "::set-output name=name::$(./gradlew properties -q | grep "modBaseName" | awk '{print $2}')"
+          echo "::set-output name=mcVersion::$(./gradlew properties -q | grep "mcVersion" | awk '{print $2}')"
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: |
-            ./gradlew properties -q | grep "modVersion" | awk '{print $2}'
+          name: "[${{ steps.metadata.outputs.mcVersion }}] ${{ steps.metadata.outputs.name }} v${{ steps.metadata.outputs.version }}"
+          tag_name: v${{ steps.metadata.outputs.version }}-${{ steps.metadata.outputs.mcVersion }}
           files: |
-            build/libs
+            build/libs/**/*.jar
