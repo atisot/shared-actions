@@ -44,4 +44,4 @@ jobs:
           tag_name: |
             ./gradlew properties -q | grep "modVersion" | awk '{print $2}'
           files: |
-            build/**/*.jar
+            build/libs
