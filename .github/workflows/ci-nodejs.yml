@@ -7,6 +7,10 @@ on:
         type: number
         required: false
         default: 16
+      setup-redis:
+        type: boolean
+        required: false
+        default: false
 
 jobs:
   ci:
@@ -21,6 +25,12 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           cache: npm
+
+      - name: Setup Redis
+        if: ${{ inputs.setup-redis }}
+        uses: supercharge/redis-github-action@1.4.0
+        with:
+          redis-version: 6
 
       - name: Install dependencies
         run: npm ci
