@@ -16,7 +16,7 @@
 ```yaml
 jobs:
   ci:
-    uses: atisot/shared-actions/.github/workflows/ci-nodejs.yml@v1.2.0
+    uses: atisot/shared-actions/.github/workflows/ci-nodejs.yml@v1.3.0
 ```
 
 ---
@@ -32,7 +32,7 @@ jobs:
 ```yaml
 jobs:
   ci:
-    uses: atisot/shared-actions/.github/workflows/ci-java-gradle.yml@v1.2.0
+    uses: atisot/shared-actions/.github/workflows/ci-java-gradle.yml@v1.3.0
     with:
       java-version: 17
 ```
@@ -50,7 +50,7 @@ jobs:
 ```yaml
 jobs:
   release:
-    uses: atisot/shared-actions/.github/workflows/release-mc-mod.yml@v1.2.0
+    uses: atisot/shared-actions/.github/workflows/release-mc-mod.yml@v1.3.0
     with:
       java-version: 17
 ```
